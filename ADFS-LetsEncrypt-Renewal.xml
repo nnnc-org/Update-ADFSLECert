@@ -18,7 +18,7 @@
   </Triggers>
   <Principals>
     <Principal id="Author">
-      <UserId></UserId>
+      <UserId>administrator</UserId>
       <LogonType>Password</LogonType>
       <RunLevel>HighestAvailable</RunLevel>
     </Principal>
@@ -47,7 +47,7 @@
   <Actions Context="Author">
     <Exec>
       <Command>"C:\Program Files\PowerShell\7\pwsh.exe"</Command>
-      <Arguments>-c ".\Update-ADFSLECert.ps1 -MainDomain <sts.example.com>"</Arguments>
+      <Arguments>-c ".\Update-ADFSLECert.ps1 -MainDomain sts.example.com"</Arguments>
       <WorkingDirectory>C:\Users\Administrator\Documents\Lets Encrypt\</WorkingDirectory>
     </Exec>
   </Actions>
