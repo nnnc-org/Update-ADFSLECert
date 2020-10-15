@@ -55,7 +55,7 @@ This script is set to automatically log the process and create a persistent log 
 
 ### Troubleshooting
 
-####Windows 2012 R2
+#### Windows 2012 R2
 
 Windows 2012 R2 / ADFS 3.0 does not particularly like certificates with a Cryptography Next Generation (CNG) private key.  As a result, you will likely experience errors when attempting to run the script.  My experiences in troubleshooting this have been inconsistent.  However, after executing the initial run (with the -UseExsiting switch) and receiving an error message, I have found that I can usually get it to work following these steps:
 - Use MMC to verify the Let's Encrypt certificate is successfully imported into the certificate store
