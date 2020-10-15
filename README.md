@@ -57,16 +57,16 @@ This script is set to automatically log the process and create a persistent log 
 
 This XML file is a sample scheduled task that can be imported into the Windows Task Scheduler to handle the automatic renewal process.  There are a few modifications that will need to be made following the import:
 - General Tab
- - Change User or Group
-  - Use administrator account, either local or domain
+    - Change User or Group
+        - Use administrator account, either local or domain
 - Triggers
- - Change date / time (optional)
+    - Change date / time (optional)
 - Actions
- - Edit Task
-  - Add arguments
-   - Change sts.example.com to FQDN of ADFS server
-  - Start in
-   - Replace with path of actual location of the script
+    - Edit Task
+        - Add arguments
+            - Change sts.example.com to FQDN of ADFS server
+        - Start in
+            - Replace with path of actual location of the script
 
 ### Troubleshooting
 
