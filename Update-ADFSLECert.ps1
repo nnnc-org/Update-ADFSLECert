@@ -1,7 +1,7 @@
 
 Param(
     [string]$MainDomain,
-    [switch]$UseExsiting,
+    [switch]$UseExisting,
     [switch]$ForceRenew
 )
 
@@ -16,7 +16,7 @@ Import-Module ADFS -SkipEditionCheck
 Import-Module Posh-Acme
 $LogFile = '.\UpdateADFS.log'
 Get-Date | Out-File $LogFile -Append
-if($UseExsiting) {
+if($UseExisting) {
     Logging -Message "Using Existing Certificate"
     $cert = get-pacertificate -MainDomain $MainDomain
 }
