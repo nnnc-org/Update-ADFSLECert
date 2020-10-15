@@ -53,6 +53,21 @@ The '-ForceRenew' and '-UseExisting' switches are mutually exclusive, with '-Use
 
 This script is set to automatically log the process and create a persistent log file in the same directory the script is located.  The name of the log file is UpdateADFS.txt
 
+### ADFS-LetsEncrypt-Renewal.xml
+
+This XML file is a sample scheduled task that can be imported into the Windows Task Scheduler to handle the automatic renewal process.  There are a few modifications that will need to be made following the import:
+- General Tab
+ - Change User or Group
+  - Use administrator account, either local or domain
+- Triggers
+ - Change date / time (optional)
+- Actions
+ - Edit Task
+  - Add arguments
+   - Change sts.example.com to FQDN of ADFS server
+  - Start in
+   - Replace with path of actual location of the script
+
 ### Troubleshooting
 
 #### Windows 2012 R2
