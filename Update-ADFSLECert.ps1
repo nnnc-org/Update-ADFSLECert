@@ -11,8 +11,10 @@ function Logging {
     $Message >> $LogFile
 }
 
-Import-Module PKI -SkipEditionCheck
-Import-Module ADFS -SkipEditionCheck
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+Import-Module PKI
+Import-Module ADFS
 Import-Module Posh-Acme
 $LogFile = '.\UpdateADFS.log'
 Get-Date | Out-File $LogFile -Append
