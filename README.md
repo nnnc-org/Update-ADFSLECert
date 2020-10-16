@@ -6,9 +6,9 @@ This script uses Posh-ACME and Let's Encrypt to update ADFS service communicatio
 
 If running Windows 2012 / Windows 2012 R2, you must first install PowerShell 5.1, available at [https://aka.ms/WMF5Download](https://aka.ms/WMF5Download).
 
-#### Install PowerShell Core
+#### PowerShell version
 
-This script is designed to run on PowerShell Core.  To install PowerShell Core, visit [here](https://github.com/PowerShell/PowerShell/releases) to download an installer (the latest stable version will work).  
+This script is designed to run on PowerShell 5.1 or greater.  There have been issues on some PowerShell Core, so it is recommended not to use PowerShell Core at this time.  
 
 #### Install Posh-ACME module
 
@@ -18,7 +18,7 @@ Install-Module -Name Posh-ACME -Scope AllUsers -AcceptLicense
 ```
 
 #### Request initial certificate
-The script is designed to handle the renewals automatically, so you need to request the initial certificate manually.  In PowerShell Core:
+The script is designed to handle the renewals automatically, so you need to request the initial certificate manually.  In PowerShell:
 
 ```powershell
 New-PACertificate -Domain sts.example.com -AcceptTOS -Contact me@example.com -DnsPlugin Cloudflare -PluginArgs @{CFAuthEmail="me@example.com";CFAuthKey='xxx'}
