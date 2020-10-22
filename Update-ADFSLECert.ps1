@@ -39,6 +39,7 @@ if($cert){
     Import-PfxCertificate -FilePath $cert.PfxFullChain -CertStoreLocation Cert:\LocalMachine\My -Password ('poshacme' | ConvertTo-SecureString -AsPlainText -Force)
     Logging -Message "Updating ADFS Certificate"
     Set-AdfsSslCertificate -Thumbprint $cert.Thumbprint
+    Set-AdfsCertificate -CertificateType Service-Communications -Thumbprint $cert.Thumbprint
     
     Logging -Message "Restarting adfssrv"
     Restart-Service adfssrv
