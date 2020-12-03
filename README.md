@@ -54,6 +54,24 @@ The '-ForceRenew' and '-UseExisting' switches are mutually exclusive, with '-Use
 
 This script is set to automatically log the process and create a persistent log file in the same directory the script is located.  The name of the log file is UpdateADFS.txt
 
+#### Accessing the certificate(s) directly
+
+Upon a successful request, you can directly access the certificates by visiting the following directory
+
+```powershell
+# Issue this command to enter into the Let's Encrypt directory
+cd ~\appdata\Local\Posh-ACME\acme-v02.api.letsencrypt.org\
+
+# Next, do a 'cd', then press Tab to auto populate the next directory.  This directory represents your account number.
+cd [Tab]
+
+# Perform the 'cd' - Tab again, which will enter into the next directory, which should be the name of the certificate you requested.
+cd [Tab]
+
+# Open Windows Explorer to access the certificates via GUI, if desired
+start .\
+```
+
 ### ADFS-LetsEncrypt-Renewal.xml
 
 This XML file is a sample scheduled task that can be imported into the Windows Task Scheduler to handle the automatic renewal process.  There are a few modifications that will need to be made following the import:
