@@ -71,6 +71,7 @@ cd [Tab]
 # Open Windows Explorer to access the certificates via GUI, if desired
 start .\
 ```
+If needing to manually install the certificate, the password by default is 'poshacme'
 
 ### ADFS-LetsEncrypt-Renewal.xml
 
