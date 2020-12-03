@@ -1,5 +1,5 @@
 # Update-ADFSLECert
-This script uses Posh-ACME and Let's Encrypt to update ADFS service communications certificate
+This script uses Posh-ACME and Let's Encrypt to update ADFS service communications certificate.  Please note this script is designed to be used on an existing ADFS server, not during the initial setup of ADFS.
 ## How To Use:
 
 ### First Time Setup
@@ -23,6 +23,7 @@ The script is designed to handle the renewals automatically, so you need to requ
 ```powershell
 New-PACertificate -Domain sts.example.com -AcceptTOS -Contact me@example.com -DnsPlugin Cloudflare -PluginArgs @{CFAuthEmail="me@example.com";CFAuthKey='xxx'}
 
+# If ADFS is not currently installed, stop and do not run the following script until after ADFS is installed and working
 # After the above completes, run the following
 $MainDomain = 'sts.example.com'
 
