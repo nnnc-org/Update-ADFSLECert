@@ -8,7 +8,11 @@ If running Windows 2012 / Windows 2012 R2, you must first install PowerShell 5.1
 
 #### PowerShell version
 
-This script is designed to run on PowerShell 5.1 or greater.  There have been issues on some PowerShell Core, so it is recommended not to use PowerShell Core at this time.  
+This script is designed to run on PowerShell 7 or greater.  There have been issues on some PowerShell Core, so it is recommended not to use PowerShell Core at this time.  
+
+#### ADFS Proxy Options
+
+To also update ADFS Proxy settings, you will need to have SSH installed on that server and allowing appropriate firewall policies.  An additional repository is available to assist in the adding of Powershell 7 and enabling SSH.
 
 #### Install Posh-ACME module
 
@@ -42,8 +46,16 @@ To normally run it:
 You can force a renewal with the '-ForceRenew' switch:
 
 ```powershell
-./Update-ADFSLECert.ps1 -MainDomain $MainDomain -ForceRenew
+.\Update-ADFSLECert.ps1 -MainDomain $MainDomain -ForceRenew
 ```
+
+### Send certificate to Web Application Proxy server
+
+```powershell
+.\Update-ADFSLECert.ps1 -MainDomain $MainDomain -ProxyHostName 192.168.1.2 -ProxyUserName admin -ProxyIdentityPath "C:\Users\admin\.ssh\id_rsa"
+```
+Please note that if the username of the WAP (remote) server is the same as the username of the ADFS, the -ProxyUserName is not necessary.  Likewise, if the location of the IdentityPath on the WAP server is the default location, that parameter can also be omitted.
+
 ### Other Notes
 
 #### Switch Mutual Exclusivity
