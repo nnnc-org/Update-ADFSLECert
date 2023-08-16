@@ -25,7 +25,11 @@ Install-Module -Name Posh-ACME -Scope AllUsers -AcceptLicense
 The script is designed to handle the renewals automatically, so you need to request the initial certificate manually.  In PowerShell:
 
 ```powershell
+# For use with CloudFlare
 New-PACertificate -Domain sts.example.com -AcceptTOS -Contact me@example.com -DnsPlugin Cloudflare -PluginArgs @{CFAuthEmail="me@example.com";CFAuthKey='xxx'}
+
+# For use with DNS Made Easy
+New-PACertificate -Domain sts.example.com -AcceptTOS -Contact me@example.com -DnsPlugin DMEasy -PluginArgs @{DMEKey="DNSKeyxxxxx";DMESecret=(ConvertTo-SecureString 'DNS-Secret-xxxxx' -AsPlainText -Force)}
 
 # If ADFS is not currently installed, stop and do not run the following script until after ADFS is installed and working
 # After the above completes, run the following
